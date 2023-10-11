@@ -32,106 +32,43 @@
     <P id="help" style="color: rgb(31, 4, 55);">Help report</P>
 
 
-    <div class="container">
-
-        <div class="row">
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-           </div><br>
-
-           <div class="row">
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-           </div><br>
-
-           <div class="row">
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-           </div><br>
-
-
-           <div class="row">
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-           </div><br>
-
-
-           <div class="row">
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-            <div class="col-md-2">
-                <img src="location map.jfif" alt="location" width="100" height="100">
-            </div>
-           </div>
-
-
-
-
-        
+    <body>
+        <div class= "container-fluid text-center">
+        <h2 class="text-success ">Find the treasure by Priya</h2><br>
+        <p class="text-primary  ">Click on the locations to search for treasure, beware the traps</p>
+        <p class="text-info "id="locations">Number of locations checked is zero</p>
+        <p  class="text-danger"id="penalty">Penalty is zero.</p>
+        <button id="helpButton" onclick="help()">Click for help</button>
+        <div class="fst-normal mx-3 my-3 text-warning" id="help">Help report</div>
         </div>
+        <div class="container">
+            <h2 class="text-center">Treasure Hunt Game</h2>
+            <div id="img-container">
+            <div class="row">
+                <div class="col-2 img-fluid ">
+                    <img id=image0 src="map.png" alt="Location" class="imageStyle" onclick="check(0)">
+                </div>
+                    <div class="col-2 img-fluid "> 
+                        <img id=image01 src="map.png" alt="Location" class="imageStyle" onclick="check(1)">
+                    </div>
+                    <div class="col-2 img-fluid ">
+                        <img id=image02 src="map.png" alt="Location" class="imageStyle" onclick="check(2)">
+                    </div>
+                    <div class="col-2 img-fluid "> 
+                        <img id=image03 src="map.png" alt="Location" class="imageStyle" onclick="check(3)">
+                    </div>
+                    <div class="col-2 img-fluid ">
+                         <img id=image04 src="map.png" alt="Location" class="imageStyle" onclick="check(4)">
+                    </div>
+                </div>
+                
+                
 
-</body>
 
-</html>
+
+
+
+
+
+
+
