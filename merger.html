@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html> 
+    <head> 
+        <title>Merging Items</title>
+        <style>
+            .flex-container {
+            display: flex;  flex-direction:row;
+            background-color: rgb(157, 205, 238);
+        }
+
+        .flex-container > div {  /*div children of the flex container*/
+        background-color: #10edc8; 
+        margin: 10px;  padding: 20px;  font-size: 30px;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 600px) { 
+            .flex-container{
+                flex-direction:column;
+                background-color: rgb(245, 175, 113);
+            }
+            }
+
+            #inputBlock {
+        width: 95%;
+        height: 120px;
+        padding: 10px;
+        margin: 20px;
+        background-color: #545698;
+        border: 1px solid #a17696;
+        border-radius: 5px;
+    }
+        </style>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" 
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    </head>
+
+
+
+<body>
+    <h1>Siva Priya builds a merger</h1>
+    <div  id="inputBlock">
+		<div class="flex-container rounded"  id="target">
+		</div>
+    </div>
+        <br>
+        <input type = "text" id="input" placeholder="please enter your value">
+        <br><br>
+        <div>
+		<button class ="btn btn-primary" onclick="addEnd()">Add front</button>
+        <button class ="btn btn-primary" onclick="addFront()">Remove</button>
+        <button class ="btn btn-primary" onclick="remove()">Add end</button>
+        </div>
+	
+</body>
+<script>
+    function addEnd(){
+        let display = document.createElement("div");
+		display.innerHTML = document.getElementById("input").value;
+		display.className = "merger";
+        let container = document.getElementById("target");
+        container.appendChild(display);
+    }
+
+    function addFront(){
+        mergerItems = document.getElementsByClassName("merger");
+        length = mergerItems.length;
+        console.log(length)
+        if (length > 0){ 
+            mergerItems[Math.floor(length/2)].remove();
+        }
+    }
+
+    function remove(){
+        let display = document.createElement("div");
+		display.innerHTML = document.getElementById("input").value;
+		display.className = "merger";
+        let container = document.getElementById("target");
+        container.insertBefore(display, container.firstChild);
+    }
+	// function makeNewDiv(){
+	// 	/* make the div and its text */
+	// 	let element = document.createElement("div")
+	// 	element.innerHTML = "an item after 3"
+	// 	element.style.color = "orange"
+
+	// 	/* add it to the container */
+	// 	let container = document.getElementById('target')
+	// 	container.appendChild(element)
+		
+	// }
+</script>
+</html>	
