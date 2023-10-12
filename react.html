@@ -1,52 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <title>Set TimeOut Reaction Game</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <head>
+    <title>Siva Priya Speed Check</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
-
-<body>
+    <style>
+      .btn {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
     <h2>Siva Priya Katta Speed Check</h2>
 
     <p id="target">Your time</p>
     <p id="counter">Count</p>
     <button class="btn btn-info" onclick="startTime()">Start Timer</button>
-    <button id="React" class="btn btn-success" onclick="recordTime()">React</button>
+    <button id="React" class="btn btn-success">React</button>
+
     <script>
+      let reactTime ;
 
+      function recordTime() {
+        reactTime = Date.now();
+        console.log(reactTime);
+      }
 
-        let reactTime = undefined;
-        function recordTime() {
-            reactTime = Date.now();           
-            console.log(reactTime);
-        }
-        
-        function startTime() {
-            let rcount = Math.floor(Math.random()*9 ) + 2;
-            for (let i=0; i< rcount; i++) {
-        setTimeout(() => {
-            console.log(i);
-          document.getElementById("counter").innerHTML = "Count: " + i
-        }, (rcount - i)*1000);
-        }
-        setTimeout(() => {
-        if (reactTime == undefined) {
-          document.getElementById("target").innerHTML = "Too Slow"
-        } else {
-          let endTime = Date.now()
-          let elapsedTime = endTime - reactTime
-          document.getElementById("target").innerHTML = "Time was " + elapsedTime + "milliseconds"
-        }
-        }, rcount * 1000);
-    }
+      document.getElementById("React").onclick = recordTime;
+      
+      
     </script>
-
-</body>
-
+  </body>
 </html>
