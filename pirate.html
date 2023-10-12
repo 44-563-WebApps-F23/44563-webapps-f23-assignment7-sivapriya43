@@ -40,6 +40,7 @@
     <div class="four wide column" id="penalty"><b>Penalty is zero.</b></div>
     <div class="four wide column" id="helpButton"><b>Click for help.</b></div>
     <div class="four wide column" id="help"><b>Help report</b></div>
+    <button onclick="resetGame()">New Game</button>
     <div class="container" style="width: 500px; height: 500px">
       <div class="row" >
         <div class="col-sm">
@@ -390,7 +391,7 @@
       }
       document.getElementById("helpButton").onclick = help;
 
-      /*function resetGame() {
+      function resetGame() {
         treasureLocation = Math.floor(Math.random() * 25);
         do {
           trapLocation = Math.floor(Math.random() * 25);
@@ -404,7 +405,7 @@
           "Number of locations checked is " + checkCount;
         document.getElementById("penalty").textContent =
           "Penalty is " + penalty;
-      }*/
+      }
     </script>
   </body>
 </html>
