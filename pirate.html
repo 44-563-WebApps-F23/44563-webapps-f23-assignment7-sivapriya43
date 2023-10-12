@@ -1,172 +1,413 @@
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Siva Priya finding treasure</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> find a Treasure</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    
-
-</head>
-<body>
-    <h1>Find the treasure by Siva Priya Katta</h1>
-    <form class="ui container">
-            
-        <p>
-          Click on the locations to search for treasure, beware of the traps!!!!
-        </p>
-        <br />
-        <div class="ui grid">
-          <div class="four wide column">
-            <p id="locations">Number of locations checked is 0.</p>
-          </div>
-          <div class="four wide column"><p id="penalty">Penalty is 0.</p></div>
-          <div class="eight wide column">
-            <button id="clickHelp"><p onclick="help()">Click for help</p></button>
-            <p id="help">Help report</p>
-          </div>
-        </div>
-        <br />
-      </form>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .col-sm {
+        padding-left: 0%;
+        padding-right: 0%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="background-color: lightblue">
+      <h1 style="text-align: center">Find the treasure by Siva Priya</h1>
     </div>
     <div>
-    <div class="row" style="padding-left: 150px;">
-        <div class="col-md-2"><img id="img0" onclick="check(0)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="img1" onclick="check(1)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="img2" onclick="check(2)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="img3" onclick="check(3)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="img4" onclick="check(4)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
+      <b>Click on the locations to search for treasure, beware the traps</b>
     </div>
-    <br>
-    <div class="row" style="padding-left: 150px;">
-        <div class="col-md-2"><img id="img5" onclick="check(5)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="img6" onclick="check(6)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="img7" onclick="check(7)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="img8" onclick="check(8)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="img9" onclick="check(9)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
+    <div class="four wide column"  id="locations"><b>Number of locations checked is zero.</b></div>
+    <div class="four wide column" id="penalty"><b>Penalty is zero.</b></div>
+    <div class="four wide column" id="helpButton"><b>Click for help.</b></div>
+    <div class="four wide column" id="help"><b>Help report</b></div>
+    <div class="container" style="width: 500px; height: 500px">
+      <div class="row" >
+        <div class="col-sm">
+          <img
+            id="image0"
+            class="object-fit-fill border rounded"
+            src="Map_final_Img.jpeg"
+            
+            width="100px"
+            height="100px"
+            onclick="check(0)"
+          />
+        </div>
+        <div class="col-sm">
+          <img
+            id="image1"
+            class="object-fit-fill border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(1)"
+          />
+        </div>
+        <div class="col-sm">
+          <img
+            id="image2"
+            class="object-fit-fill border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(2)"
+          />
+        </div>
+        <div class="col-sm">
+          <img
+            id="image3"
+            class="object-fit-cover border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(3)"
+          />
+        </div>
+        <div class="col-sm">
+          <img
+            id="image4"
+            class="object-fit-cover border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(4)"
+          />
+        </div>
+      </div>
+      <div class="row" >
+        <div class="col-sm">
+          <img
+            id="image5"
+            class="object-fit-fill border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(5)"
+          />
+        </div>
+        <div class="col-sm">
+          <img
+            id="image6"
+            class="object-fit-fill border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(6)"
+          />
+        </div>
+        <div class="col-sm">
+          <img
+            id="image7"
+            class="object-fit-fill border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(7)"
+          />
+        </div>
+        <div class="col-sm">
+          <img
+            id="image8"
+            class="object-fit-cover border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(8)"
+          />
+        </div>
+        <div class="col-sm">
+          <img
+            id="image9"
+            class="object-fit-cover border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(9)"
+          />
+        </div>
+      </div>
+      <div class="row" >
+        <div class="col-sm">
+          <img
+            id="image10"
+            class="object-fit-fill border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(10)"
+          />
+        </div>
+        <div class="col-sm">
+          <img
+            id="image11"
+            class="object-fit-fill border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(11)"
+          />
+        </div>
+        <div class="col-sm">
+          <img
+            id="image12"
+            class="object-fit-fill border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(12)"
+          />
+        </div>
+        <div class="col-sm">
+          <img
+            id="image13"
+            class="object-fit-cover border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(13)"
+          />
+        </div>
+        <div class="col-sm">
+          <img
+            id="image14"
+            class="object-fit-cover border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(14)"
+          />
+        </div>
+      </div>
+      <div class="row" >
+        <div class="col-sm">
+          <img
+            id="image15"
+            class="object-fit-fill border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(15)"
+          />
+        </div>
+        <div class="col-sm">
+          <img
+            id="image16"
+            class="object-fit-fill border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(16)"
+          />
+        </div>
+        <div class="col-sm">
+          <img
+            id="image17"
+            class="object-fit-fill border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(17)"
+          />
+        </div>
+        <div class="col-sm">
+          <img
+            id="image18"
+            class="object-fit-cover border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(18)"
+          />
+        </div>
+        <div class="col-sm">
+          <img
+            id="image19"
+            class="object-fit-cover border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(19)"
+          />
+        </div>
+      </div>
+      <div class="row" >
+        <div class="col-sm">
+          <img
+            id="image20"
+            class="object-fit-fill border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(20)"
+          />
+        </div>
+        <div class="col-sm">
+          <img
+            id="image21"
+            class="object-fit-fill border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(21)"
+          />
+        </div>
+        <div class="col-sm">
+          <img
+            id="image22"
+            class="object-fit-fill border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(22)"
+          />
+        </div>
+        <div class="col-sm">
+          <img
+            id="image23"
+            class="object-fit-cover border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(23)"
+          />
+        </div>
+        <div class="col-sm">
+          <img
+            id="image24"
+            class="object-fit-cover border rounded"
+            src="Map_final_Img.jpeg"
+            width="100px"
+            height="100px"
+            onclick="check(24)"
+          />
+        </div>
+      </div>
     </div>
-    <br>
-    <div class="row" style="padding-left: 150px;">
-        <div class="col-md-2"><img id="img10" onclick="check(10)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="img11" onclick="check(11)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="img12" onclick="check(12)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="img13" onclick="check(13)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="img14" onclick="check(14)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-    </div>
-    <br> 
-    <div class="row" style="padding-left: 150px;">
-        <div class="col-md-2"><img id="img15" onclick="check(15)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="img16" onclick="check(16)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="img17" onclick="check(17)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="img18" onclick="check(18)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="img19" onclick="check(19)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-    </div>
-    <br>
-    <div class="row" style="padding-left: 150px;">
-        <div class="col-md-2"><img id="img20" onclick="check(20)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="img21" onclick="check(21)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="img22" onclick="check(22)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="img23" onclick="check(23)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="img24" onclick="check(24)" src="Map_Final_Img.jpeg" alt="treasure"
-                style="width: 100px;height:100px;"></div>
-    </div>
-    </div>
-    <Script>
-        let locations = document.getElementById("locations");
-        let penaltyy = document.getElementById("penalty");
-
-        let checkCount = 0;
-        let penalty = 0;
-        let lastCheck = 0;
-        let treasureLocation = 5;
-        let trapLocation = 18;
-        let gameOver = false;
-        let ids=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
-
-        function check(position) {
-      if (gameOver == true) {
-        //do nothing
-        return;
-      }
-      if (position === treasureLocation) {
-        document.getElementById(ids[position]).src = "Treasure_Final_Img.jpeg";
-        gameOver = true;
-        penalty = penalty - 3;
-      } else if (position === trapLocation) {
-        document.getElementById(ids[position]).src = "Trap_Final_Img.jpeg";
-        gameOver = true;
-        penalty = penalty + 4;
-      } else {
-        document.getElementById(ids[position]).src = "Pirate_Final_Img.jpeg";
-        penalty = penalty + 1;
-      }
-      checkCount++;
-      locations.innerHTML = "Number of locations checked is " + checkCount;
-      lastCheck = position;
-      penaltyy.innerHTML = "Penalty is " + penalty;
+    <script>
+      let ids = [
+        "image0",
+        "image1",
+        "image2",
+        "image3",
+        "image4",
+        "image5",
+        "image6",
+        "image7",
+        "image8",
+        "image9",
+        "image10",
+        "image11",
+        "image12",
+        "image13",
+        "image14",
+        "image15",
+        "image16",
+        "image17",
+        "image18",
+        "image19",
+        "image20",
+        "image21",
+        "image22",
+        "image23",
+        "image24",
+      ];
+      let checkCount = 0;
+      let penalty = 0;
+      let lastCheck = 0;
+      let treasureLocation = 5;
+      let trapLocation = 18;
+      let gameOver = false;
+      function check(position) {
+        if (gameOver) {
+          return;
         }
+        let id = ids[position];
+        let imageElement = document.getElementById(id);
+        if (position === treasureLocation) {
+          imageElement.src = "Treasure_Final_Img.jpeg";
+          gameOver = true;
+          penalty -= 3;
+        } else if (position === trapLocation) {
+          imageElement.src = "Trap_Final_Img.jpeg";
+          gameOver = true;
+          penalty += 4;
+        } else {
+          imageElement.src = "Pirate_Final_Img.jpg";
+        }
+        checkCount++;
+        penalty++;
+        lastCheck = position;
 
-    function help() {
-      let penaltyy = document.getElementById("penalty");
-      event.preventDefault();
-
-      const treasureRow = Math.floor(treasureLocation / 5);
-      const treasureCol = treasureRow % 5;
-      const lastLocationRow = Math.floor(lastCheck / 5);
-      const lastLocationCol = lastCheck % 5;
-      const rowDiff = Math.abs(treasureRow - lastLocationRow);
-      const colDiff = Math.abs(treasureCol - lastLocationCol);
-
-      // Check if the last location and treasure are next to each other
-      let helpmsg;
-      if (rowDiff <= 1 && colDiff <= 1 && rowDiff !== colDiff) {
-        helpmsg ="Can smell it";
-      } else if (rowDiff + colDiff === 2) {
-        helpmsg= "Close Matie";
-      } else {
-        helpmsg ="Step Faster";
+        document.getElementById("locations").textContent =
+          "Number of locations checked is " + checkCount;
+        document.getElementById("penalty").textContent =
+          "Penalty is " + penalty;
       }
-      penalty += 2;
+      let helpMessage = ["Can smell it", "Close Matie", "Step faster"];
+      function help() {
+        if (gameOver) {
+          return;
+        }
+        let treasureRow = Math.floor(treasureLocation / 5);
+        let treasureCol = treasureLocation % 5;
+        let lastLocationRow = Math.floor(lastCheck / 5);
+        let lastLocationCol = lastCheck % 5;
+        let rowDiff = Math.abs(treasureRow - lastLocationRow);
+        let colDiff = Math.abs(treasureCol - lastLocationCol);
+        if (rowDiff + colDiff === 1) {
+          document.getElementById("help").textContent = helpMessage[0]; 
+        } else if (rowDiff + colDiff === 2) {
+          document.getElementById("help").textContent = helpMessage[1];
+        } else {
+          document.getElementById("help").textContent = helpMessage[2]; 
+        }
+        penalty += 2;
+        document.getElementById("penalty").textContent =
+          "Penalty is " + penalty;
+        checkCount++;
+        document.getElementById("locations").textContent =
+          "Number of locations checked is " + checkCount;
+      }
+      document.getElementById("helpButton").onclick = help;
 
-      penaltyy.innerHTML = "Penalty is " + penalty;
-      document.getElementById("help").textContent = helpmsg;
-    }
-    </Script>
-	</body>
-	</html>
+      /*function resetGame() {
+        treasureLocation = Math.floor(Math.random() * 25);
+        do {
+          trapLocation = Math.floor(Math.random() * 25);
+        } while (trapLocation === treasureLocation);
 
-     
-                
-                
+        checkCount = 0;
+        penalty = 0;
+        gameOver = false;
+
+        document.getElementById("locations").textContent =
+          "Number of locations checked is " + checkCount;
+        document.getElementById("penalty").textContent =
+          "Penalty is " + penalty;
+      }*/
+    </script>
+  </body>
+</html>
 
 
 
